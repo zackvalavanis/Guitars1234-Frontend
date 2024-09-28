@@ -52,6 +52,18 @@ export function GuitarsPage () {
     })
   }
 
+  const guitarDestroy = (id) => { 
+    console.log('guitarDestroy', id);
+    axios.delete(`http://localhost:3000/guitars/${id}.json`).then(() => { 
+      setGuitars(guitars.filter((guitar) => guitar.id !== id));
+      guitarClose()
+    })
+  }
+
+
+
+
+
 
   useEffect(guitarIndex, []);
 
@@ -60,7 +72,7 @@ export function GuitarsPage () {
     <GuitarsIndex guitars={guitars} onShow={guitarShow} />
     <GuitarsNew onCreate={guitarCreate} />
     <Modal show={isGuitarVisible} onClose={guitarClose}>
-      <GuitarsShow guitar={currentGuitar} onUpdate={guitarUpdate}/>
+      <GuitarsShow guitar={currentGuitar} onUpdate={guitarUpdate} onDestroy={guitarDestroy}/>
     </Modal>
    </div>
   )
