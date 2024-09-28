@@ -35,6 +35,23 @@ export function GuitarsPage () {
     setIsGuitarVisible(false);
   };
 
+  const guitarUpdate = (id, params, successCallback) => { 
+    console.log('guitarUpdate', params);
+    axios.patch(`http://localhost:3000/guitars/${id}.json`, params).then((response) => { 
+      setGuitars( 
+        guitars.map((guitar) => { 
+          if (guitar.id === response.data.id) { 
+            return response.data;
+          } else { 
+            return guitar;
+          }
+          })
+        );
+        successCallback();
+        guitarClose();
+    })
+  }
+
 
   useEffect(guitarIndex, []);
 
@@ -43,7 +60,7 @@ export function GuitarsPage () {
     <GuitarsIndex guitars={guitars} onShow={guitarShow} />
     <GuitarsNew onCreate={guitarCreate} />
     <Modal show={isGuitarVisible} onClose={guitarClose}>
-      <GuitarsShow guitar={currentGuitar} />
+      <GuitarsShow guitar={currentGuitar} onUpdate={guitarUpdate}/>
     </Modal>
    </div>
   )
