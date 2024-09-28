@@ -16,9 +16,9 @@ export function GuitarsNew( { onCreate, currentUserId } ) {
         <div>
           Price: <input name='price' type='text' />
         </div>
-        {/* <div>
-          User ID: {currentUserId}
-        </div> */}
+        <div>
+          Image: <input name='Url[]' />
+        </div>
         <button type='submit'>Create</button>
       </form>
     </div>

@@ -9,6 +9,7 @@ export function GuitarsPage () {
   const [ guitars, setGuitars ] = useState([]);
   const [ isGuitarVisible, setIsGuitarVisible ] = useState(false);
   const [ currentGuitar, setCurrentGuitar ] = useState({});
+  
 
   const guitarIndex = () =>  { 
     console.log('guitarIndex');
@@ -59,11 +60,6 @@ export function GuitarsPage () {
       guitarClose()
     })
   }
-
-
-
-
-
 
   useEffect(guitarIndex, []);
 
