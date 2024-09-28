@@ -1,4 +1,4 @@
-export function GuitarsIndex ({guitars}) { 
+export function GuitarsIndex ({guitars, onShow}) { 
   return (
     <div>
       <h1>All Guitars!</h1>
@@ -9,6 +9,7 @@ export function GuitarsIndex ({guitars}) {
           {guitar.images_with_default.map(image => (
             <img key={image.id} src={image.url} />
           ))}
+          <button onClick={() => onShow(guitar)}>More Info</button>
         </div>
       ))}
     </div>
