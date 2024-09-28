@@ -66,7 +66,7 @@ export function GuitarsPage () {
   return ( 
    <div>
     <GuitarsIndex guitars={guitars} onShow={guitarShow} />
-    <GuitarsNew onCreate={guitarCreate} />
+    <GuitarsNew onCreate={guitarCreate} guitars={guitars} />
     <Modal show={isGuitarVisible} onClose={guitarClose}>
       <GuitarsShow guitar={currentGuitar} onUpdate={guitarUpdate} onDestroy={guitarDestroy}/>
     </Modal>

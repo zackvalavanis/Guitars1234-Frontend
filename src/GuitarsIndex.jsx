@@ -6,6 +6,7 @@ export function GuitarsIndex ({guitars, onShow}) {
         <div key={guitar.id}>
           <h2>{guitar.name}</h2>
           <h2>{guitar.price}</h2>
+          <h2>{guitar.user_id}</h2>
           {guitar.images_with_default.map(image => (
             <img key={image.id} src={image.url} />
           ))}
