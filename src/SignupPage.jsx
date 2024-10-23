@@ -8,7 +8,7 @@ export function SignupPage () {
     event.preventDefault();
     setErrors([]);
     const params = new FormData(event.target);
-    axios.post("http://localhost:3000/guitars.json", params).then((response) => { 
+    axios.post("/guitars.json", params).then((response) => { 
       console.log(response.data);
       event.target.reset();
       window.location.hred = "/";

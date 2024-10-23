@@ -13,14 +13,14 @@ export function GuitarsPage () {
 
   const guitarIndex = () =>  { 
     console.log('guitarIndex');
-    axios.get('http://localhost:3000/guitars.json').then((response) => { 
+    axios.get('/guitars.json').then((response) => { 
       console.log(response.data);
       setGuitars(response.data);
     });
   };
 
   const guitarCreate = (params, successCallback) => { 
-    axios.post('http://localhost:3000/guitars.json', params).then((response) => { 
+    axios.post('/guitars.json', params).then((response) => { 
       setGuitars([...guitars, response.data]);
       successCallback();
     })
@@ -38,7 +38,7 @@ export function GuitarsPage () {
 
   const guitarUpdate = (id, params, successCallback) => { 
     console.log('guitarUpdate', params);
-    axios.patch(`http://localhost:3000/guitars/${id}.json`, params).then((response) => { 
+    axios.patch(`/guitars/${id}.json`, params).then((response) => { 
       setGuitars( 
         guitars.map((guitar) => { 
           if (guitar.id === response.data.id) { 
@@ -55,7 +55,7 @@ export function GuitarsPage () {
 
   const guitarDestroy = (id) => { 
     console.log('guitarDestroy', id);
-    axios.delete(`http://localhost:3000/guitars/${id}.json`).then(() => { 
+    axios.delete(`/guitars/${id}.json`).then(() => { 
       setGuitars(guitars.filter((guitar) => guitar.id !== id));
       guitarClose()
     })
