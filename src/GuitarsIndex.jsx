@@ -1,7 +1,7 @@
 export function GuitarsIndex ({guitars, onShow}) { 
   return (
     <div>
-      <h1>All Guitars!</h1>
+      <h1 className='text-3xl font-bold underline'>All Guitars!</h1>
       {guitars.map((guitar) => ( 
         <div key={guitar.id}>
           <h2>{guitar.name}</h2>
